@@ -15,22 +15,28 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-material','ionM
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
+    .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
 
     .state('login',{
       url:'/login',
         templateUrl:'templates/login.html',
-        controller:''
+        controller:'LoginCtrl'
     })
 
-    .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
-
-
-
+    .state('app.entity-page',{
+      url:'/entity-page',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/entity-page.html',
+          controller: 'EntityPageCtrl'
+        }
+      }
+    })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

@@ -28,6 +28,9 @@ p {
 ==================================*/
 .menu .bar.bar-header.expanded {
   transition: all .5s ease-in-out;
+  background-image: url('../img/material-graphite.jpg');
+  background-size: 120%;
+  background-position: 0%;
 }
 
 .menu-open .bar.bar-header.expanded {
