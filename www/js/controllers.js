@@ -23,6 +23,8 @@ angular.module('starter.controllers', [])
         this.classList.toggle('active');
       });
     }
+
+  //map
     var options = {timeout: 10000, enableHighAccuracy: true};
 
     $cordovaGeolocation.getCurrentPosition(options).then(function(position){
@@ -37,7 +39,36 @@ angular.module('starter.controllers', [])
 
       $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+      //Wait until the map is loaded
+      google.maps.event.addListenerOnce($scope.map, 'idle', function(){
+
+        var marker = new google.maps.Marker({
+          map: $scope.map,
+          animation: google.maps.Animation.DROP,
+          position: latLng
+        });
+
+        var infoWindow = new google.maps.InfoWindow({
+          content: "Here I am!"
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+          infoWindow.open($scope.map, marker);
+        });
+
+      });
+
     }, function(error){
       console.log("Could not get location");
     });
 })
+.controller('BarcodeCtrl', function($scope, $cordovaBarcodeScanner){
+    $scope.scanBarcode = function() {
+      $cordovaBarcodeScanner.scan().then(function(imageData) {
+        alert(imageData.text);
+        console.log("Barcode Format -> " + imageData.format);
+      }, function(error) {
+        console.log("An error happened -> " + error);
+      });
+    };
+  })
