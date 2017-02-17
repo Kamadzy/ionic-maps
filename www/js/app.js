@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers','ionic-material','ionMdInput'])
+angular.module('starter', ['ionic', 'starter.controllers','ionic-material','ionMdInput','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

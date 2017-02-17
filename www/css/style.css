@@ -6,6 +6,16 @@ h1 {
   font-size: 42px;
 }
 
+.scroll {
+  height: 80%;
+}
+
+#map {
+  width: 95%;
+  height: 49%;
+  margin:10px
+}
+
 
 /* Utilities
 ==================================*/
