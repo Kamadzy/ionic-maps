@@ -17,23 +17,6 @@ h1 {
 }
 
 
-/* Utilities
-==================================*/
-.title-bordered {
-  border-top: solid 2px #bbb;
-  padding-top: 30px;
-}
-
-p {
-  color: #555;
-  margin: 0 0 25px;
-}
-
-.scroll {
-  height: 100%;
-}
-
-
 /* Menu
 ==================================*/
 .menu .bar.bar-header.expanded {
